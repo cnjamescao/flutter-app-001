@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final wordPair = new WordPair.random();
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '第一个Flutter',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,7 +26,16 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('第一个Flutter App'),
+        ),
+        body: new Center(
+          //child: const Text('Hello World'),
+          child: new Text(wordPair.asPascalCase),
+        ),
+      ),
     );
   }
 }
